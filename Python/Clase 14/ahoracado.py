@@ -1,19 +1,26 @@
 #Ahorcado
 import os
 import random as r
+import io
 
 print("Bienvenido al juego del Ahorcado!")
 
-archivo = open("lemario-espanol.txt", "r")
+#archivo = open("lemario-espanol.txt", "r")
+archivo = io.open("lemario-espanol.txt", mode="r",encoding="latin-1")
 
 palabras = []
 
 for palabra in archivo:
     palabras.append(palabra)
+    #print(palabra)
 
 posicion_aleatoria = r.randrange(0,len(palabras))
 #print(">> " + palabras[posicion_aleatoria][:-1] + " >> " + str(posicion_aleatoria))
-
+print(">> " + palabras[24][:-1] + ">>"+ str(len(palabras[24][:-1])))
+if palabras[24][:-1][4:-1] == 'ï¿½':
+    print("si")
+else:
+    print("NO lo reconoce")
 palabra_secreta = palabras[posicion_aleatoria][:-1]
 letras_ingresadas = ""
 
